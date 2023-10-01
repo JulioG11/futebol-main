@@ -18,7 +18,8 @@ namespace futebol.Services
         {
             try
             {
-                var novoJogador = new jogador {
+                var novoJogador = new jogador
+                {
                     nome_jogador = Jogador.nome_jogador,
                     nome_time = Jogador.nome_time,
                     duracao_contrato = Jogador.duracao_contrato,
@@ -27,7 +28,7 @@ namespace futebol.Services
                 };
                 _context.jogador.Add(novoJogador);
                 _context.SaveChanges();
-                return novoJogador; 
+                return novoJogador;
             }
             catch (Exception)
             {
@@ -47,7 +48,7 @@ namespace futebol.Services
 
             if (existingJogador == null)
             {
-                return null; 
+                return null;
             }
             try
             {
@@ -60,9 +61,9 @@ namespace futebol.Services
             }
             catch (Exception ex)
             {
-                throw ex; 
+                throw ex;
             }
-            return existingJogador; 
+            return existingJogador;
         }
 
 
@@ -82,11 +83,11 @@ namespace futebol.Services
                 }
             }
         }
-        public void TransferJogador(long id_jogador, string timeOrigem, string timeDestino)
+        public jogador TransferJogador(long id_jogador, string timeOrigem, string timeDestino)
         {
             try
             {
-                var jogador  = _context.jogador.SingleOrDefault(j => j.id_jogador == id_jogador);
+                var jogador = _context.jogador.SingleOrDefault(j => j.id_jogador == id_jogador);
 
                 if (jogador != null)
                 {
@@ -99,12 +100,21 @@ namespace futebol.Services
                         // Atualize o nome_time do jogador
                         jogador.nome_time = timeDestino;
                         _context.SaveChanges();
+                        return jogador;
                     }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    return null;
                 }
             }
             catch (Exception)
             {
-                throw;
+                return null;
             }
         }
     }

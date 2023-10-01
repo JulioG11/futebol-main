@@ -11,17 +11,23 @@ namespace futebol.Controllers
         {
             _jogadorService = jogador;
         }
-        [HttpPost("transfer")]
-        public IActionResult TransferPlayer([FromBody] transferirJogador transferirjogador)
+        [HttpPost("transferir")]
+        public IActionResult TransferirJogador([FromBody] transferirJogador transferirjogador)
         {
             try
             {
-                _jogadorService.TransferJogador(transferirjogador.id_jogador, transferirjogador.timeOrigem, transferirjogador.timeDestino);
+                var jogador = _jogadorService.TransferJogador(transferirjogador.id_jogador, transferirjogador.timeOrigem, transferirjogador.timeDestino);
+
+                if (jogador == null)
+                {
+                    return NotFound("Jogador não encontrado ou times inválidos.");
+                }
+
                 return Ok("Transferência de jogador bem-sucedida.");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return BadRequest(ex.Message);
             }
         }
     }
