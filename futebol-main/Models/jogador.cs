@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace futebol.Models
 {
-    [Table("jogador", Schema = "futebol")]
+    [Table("jogador", Schema = "mini_mundo_futebol")]
     public class jogador
     {
         [Key()]

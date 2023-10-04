@@ -2,7 +2,7 @@
 
 namespace futebol.Models
 {
-    [Table("competicao", Schema = "futebol")]
+    [Table("competicao", Schema = "mini_mundo_futebol")]
     public class competicao
     {
         public string nome_competicao { get; set; } //chave primária

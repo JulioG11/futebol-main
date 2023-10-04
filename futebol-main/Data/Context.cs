@@ -13,7 +13,7 @@ namespace futebol.Data
         public DbSet<competicao> competicao { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema("futebol");
+            modelBuilder.HasDefaultSchema("mini_mundo_futebol");
             modelBuilder.Entity<time>().HasKey(t => t.nome_time);
             modelBuilder.Entity<competicao>().HasKey(c => c.nome_competicao);
             

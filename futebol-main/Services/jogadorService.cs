@@ -20,6 +20,7 @@ namespace futebol.Services
             {
                 var novoJogador = new jogador
                 {
+                    id_jogador = Jogador.id_jogador,
                     nome_jogador = Jogador.nome_jogador,
                     nome_time = Jogador.nome_time,
                     duracao_contrato = Jogador.duracao_contrato,
@@ -54,6 +55,7 @@ namespace futebol.Services
             {
                 existingJogador.nome_jogador = Jogador.nome_jogador;
                 existingJogador.duracao_contrato = Jogador.duracao_contrato;
+                existingJogador.nome_time = Jogador.nome_time;
                 existingJogador.nacionalidade = Jogador.nacionalidade;
                 existingJogador.data_nascimento = Jogador.data_nascimento;
                 //nesse context não deve atualizar a propriedade 'nome_time' pois é uma chave estrangeira

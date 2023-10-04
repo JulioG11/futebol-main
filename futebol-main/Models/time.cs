@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace futebol.Models
 {
-    [Table("time", Schema = "futebol")]
+    [Table("time", Schema = "mini_mundo_futebol")]
     public class time
     {
         public string nome_time { get; set; } //chave primária
